@@ -177,6 +177,7 @@ resource aws_ecs_service service {
   # AWS Accounts need to opt-in to allowing tagging of this resource, else this will
   # cause the resource creation to fail.
   tags = var.ecs_service_tagging_enabled ? local.tags : null
+  propagate_tags = "SERVICE"
 }
 
 /**
