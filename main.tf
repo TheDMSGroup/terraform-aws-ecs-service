@@ -111,6 +111,7 @@ resource aws_ecs_task_definition task {
       host_path = volume.value["host_path"]
     }
   }
+  tags = local.tags
 }
 
 /**
@@ -202,6 +203,7 @@ resource aws_service_discovery_service sds {
   health_check_custom_config {
     failure_threshold = var.service_discovery_failure_threshold
   }
+  tags = local.tags
 }
 
 /*
@@ -215,6 +217,7 @@ resource aws_appautoscaling_target scaling_target {
   scalable_dimension = "ecs:service:DesiredCount"
   min_capacity       = var.scaling_min_capacity
   max_capacity       = var.scaling_max_capacity
+  tags = local.tags
 }
 
 /**
@@ -266,6 +269,7 @@ resource aws_iam_role ecs_execution_role {
   ]
 }
 EOF
+  tags = local.tags
 }
 
 /**
@@ -329,6 +333,7 @@ resource aws_iam_role ecs_task_role {
   ]
 }
 EOF
+  tags = local.tags
 }
 
 /**
