@@ -217,7 +217,6 @@ resource aws_appautoscaling_target scaling_target {
   scalable_dimension = "ecs:service:DesiredCount"
   min_capacity       = var.scaling_min_capacity
   max_capacity       = var.scaling_max_capacity
-  tags = local.tags
 }
 
 /**
